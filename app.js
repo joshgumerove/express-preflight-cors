@@ -1,11 +1,6 @@
 const express = require("express");
 const app = express();
-// const basicAuth = require("express-basic-auth");
-// app.use(
-//   basicAuth({
-//     users: { admin: "supersecret" },
-//   })
-// );
+
 function isAuth(req, res, next) {
   const auth = req.headers.authorization;
   const random = req.headers.random;
