@@ -8,7 +8,8 @@ const app = express();
 // );
 function isAuth(req, res, next) {
   const auth = req.headers.authorization;
-  if (auth === "password") {
+  const random = req.headers.random;
+  if (auth === "password" && random === "josh") {
     next();
   } else {
     res.status(401);
@@ -20,7 +21,7 @@ app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header(
     "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+    "Origin, X-Requested-With, Content-Type, Accept, Authorization, Random"
   );
   next();
 });
